@@ -3,13 +3,8 @@ package java_Calendar;
 import java.util.Scanner;
 
 public class Calendar {
-	
-	private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	
-	public int getmaxDaysofMonth(int month) {
-		return MAX_DAYS[month - 1];
-	}
-	public static void main(String[] args) {
+
+	public void printSampleCalendar() {
 		System.out.println("일  월  화  수  목  금  토");
 		System.out.println("-----------------------");
 		System.out.println("1 2 3 4 5 6 7");
@@ -17,20 +12,26 @@ public class Calendar {
 		System.out.println("15 16 17 18 19 20 21");
 		System.out.println("22 23 24 25 26 27 28");
 
-		System.out.println("Hello Calendar");
-		
-		// 숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
-		
-		Scanner scanner = new Scanner(System.in);
+	}
+
+	public static void main(String[] args) {
+
+		int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		System.out.println("달을 입력하세요.");
-		int month = scanner.nextInt();
+
+		cal.printSampleCalendar();
 		
-		
-		
-		System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getmaxDaysofMonth(month));
-		scanner.close();
-		
+		System.out.println("테스트 케이스를 정해주세요.");
+		int T = sc.nextInt();
+		for (int i = 0; i < T; i++) {
+			System.out.println("달을 입력하세요.");
+			int month = sc.nextInt();
+			System.out.printf("%d월의 최대 일수는 %d일 입니다.\n", month, MAX_DAYS[month - 1]);
+		}
+		System.out.println("종료");
+		sc.close();
 	}
 
 }
