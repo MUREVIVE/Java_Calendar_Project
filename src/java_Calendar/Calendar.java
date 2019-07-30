@@ -3,7 +3,12 @@ package java_Calendar;
 import java.util.Scanner;
 
 public class Calendar {
-
+	
+	private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	
+	public int getmaxDaysofMonth(int month) {
+		return MAX_DAYS[month - 1];
+	}
 	public static void main(String[] args) {
 		System.out.println("일  월  화  수  목  금  토");
 		System.out.println("-----------------------");
@@ -17,33 +22,15 @@ public class Calendar {
 		// 숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
 		
 		Scanner scanner = new Scanner(System.in);
+		Calendar cal = new Calendar();
 		System.out.println("달을 입력하세요.");
 		int month = scanner.nextInt();
 		
-		int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		
-		System.out.printf("%d월은 %d일까지 있습니다.\n", month, maxDays[month - 1]);
+		
+		System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getmaxDaysofMonth(month));
 		scanner.close();
-		/*
-		int month;
-		Scanner sc = new Scanner(System.in);
-		String s1;
-		s1 = sc.next();
-		month = Integer.parseInt(s1);
 		
-		// 왜 이 문구는 적용 안되는걸까..?
-		if(month <= 0 && month >= 13)
-			System.out.println("잘못 입력했다 이거야");
-		else {
-			if(month == 2)
-				System.out.println("28일 입니다.");
-			else if(month == 4 || month == 6 || month == 9 || month == 11)
-				System.out.println("30일 입니다.");
-			else
-				System.out.println("31일 입니다.");
-		}
-		
-		sc.close();*/
 	}
 
 }
