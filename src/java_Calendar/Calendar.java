@@ -16,12 +16,22 @@ public class Calendar {
 		
 		// 숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
 		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("달을 입력하세요.");
+		int month = scanner.nextInt();
+		
+		int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
+		System.out.printf("%d월은 %d일까지 있습니다.\n", month, maxDays[month - 1]);
+		scanner.close();
+		/*
 		int month;
 		Scanner sc = new Scanner(System.in);
 		String s1;
 		s1 = sc.next();
 		month = Integer.parseInt(s1);
 		
+		// 왜 이 문구는 적용 안되는걸까..?
 		if(month <= 0 && month >= 13)
 			System.out.println("잘못 입력했다 이거야");
 		else {
@@ -33,7 +43,7 @@ public class Calendar {
 				System.out.println("31일 입니다.");
 		}
 		
-		sc.close();
+		sc.close();*/
 	}
 
 }
